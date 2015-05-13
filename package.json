@@ -1,0 +1,43 @@
+{
+  "name": "st-multi-sort",
+  "version": "1.0.0",
+  "description": "Multi column sorting directive for smart table",
+  "author": "Good Eggs <open-source@goodeggs.com>",
+  "contributors": [
+    "dannynelson <danny@goodeggs.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "smart-table smart table sort multi column multi-column sorting shift stable"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodeggs/st-multi-sort.git"
+  },
+  "homepage": "https://github.com/goodeggs/st-multi-sort",
+  "bugs": "https://github.com/goodeggs/st-multi-sort/issues",
+  "dependencies": {
+    "orderby": "^1.1.0"
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.8.x",
+    "mocha": "~1.x.x",
+    "chai": "~1.x.x",
+    "mocha-sinon": "~1.x.x",
+    "goodeggs-karma": "^2.3.0",
+    "angular-smart-table": "git://github.com/lorenzofox3/Smart-Table#v2.0.3",
+    "angular-mocks": "^1.3.15",
+    "angular": "^1.3.15",
+    "goodeggs-angular-browserify": "^2.0.0"
+  },
+  "scripts": {
+    "compile": "gulp compile",
+    "prepublish": "npm run compile",
+    "pretest": "npm run compile",
+    "test": "gulp test"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  }
+}

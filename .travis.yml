@@ -1,0 +1,12 @@
+sudo: true
+language: node_js
+node_js:
+  - '0.10'
+cache: false
+
+before_install:
+  - |
+    export DISPLAY=:99.0
+    curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chrome.sh | sh
+    curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chromedriver.sh | sh
+script: npm test
