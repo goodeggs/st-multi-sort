@@ -8,8 +8,8 @@ angular.module('smart-table')
   clickedElements = []
 
   {
-    getCount: ->
-      clickedElements.length
+    getIndex: (elementId) ->
+      clickedElements.indexOf(elementId) + 1
 
     clickElement: (elementId) ->
       if elementId not in clickedElements

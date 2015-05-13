@@ -60,7 +60,7 @@ angular.module('smart-table').directive 'stMultiSort', [
           if !holdingShiftKey
             $rootScope.$broadcast 'clearOtherSortClasses', elementId
 
-        tableState.sort.predicate.splice(stShiftSort.getCount(), 0, sort)
+        tableState.sort.predicate.splice(stShiftSort.getIndex(elementId), 0, sort)
         tableState.pagination.start = 0
         ctrl.pipe()
 

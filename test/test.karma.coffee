@@ -229,51 +229,6 @@ describe 'stMultiSort Directive', ->
       ]
       return
 
-    # it 'should reset the sort state on the third call', ->
-    #   ths = element.find('th')
-    #   actual = undefined
-    #   angular.element(ths[1]).triggerHandler 'click'
-    #   angular.element(ths[1]).triggerHandler 'click'
-    #   tableState.sorters = [ {
-    #     predicate: 'firstname'
-    #     reverse: true
-    #   } ]
-    #   tableState.pagination.start = 40
-    #   angular.element(ths[1]).triggerHandler 'click'
-    #   actual = trToModel(element.find('tr.test-row'))
-    #   expect(hasClass(ths[1], 'st-sort-ascent')).to.equal false
-    #   expect(hasClass(ths[1], 'st-sort-descent')).to.equal false
-    #   expect(actual).to.deep.equal [
-    #     {
-    #       name: 'Renard'
-    #       firstname: 'Laurent'
-    #       age: 66
-    #     }
-    #     {
-    #       name: 'Francoise'
-    #       firstname: 'Frere'
-    #       age: 99
-    #     }
-    #     {
-    #       name: 'Renard'
-    #       firstname: 'Olivier'
-    #       age: 33
-    #     }
-    #     {
-    #       name: 'Leponge'
-    #       firstname: 'Bob'
-    #       age: 22
-    #     }
-    #     {
-    #       name: 'Faivre'
-    #       firstname: 'Blandine'
-    #       age: 44
-    #     }
-    #   ]
-    #   expect(tableState.sorters).to.deep.equal []
-    #   expect(tableState.pagination.start).to.deep.equal 0
-    #   return
-
     it 'should sort by multiple columns when shift clicking', ->
       ths = element.find('th')
       angular.element(ths[0]).triggerHandler 'click'
@@ -338,6 +293,8 @@ describe 'stMultiSort Directive', ->
         }
       ]
       return
+
+
 
     it 'should support getter function as predicate', ->
       ths = element.find('th')
