@@ -1,21 +1,31 @@
-# St Multi Sort
+# Smart Table Multi Sort
 
-Multi column sorting directive for smart table
+A multi-column sorting directive for [Smart Table](http://lorenzofox3.github.io/smart-table-website/). It works just like stSort, but also supports:
+
+- **stable sort** - clicking another column preserves the previous sort order when possible
+- **shift click sorting** - shift clicking a column adds that column as a secondary sort
 
 [![build status][travis-badge]][travis-link]
 [![npm version][npm-badge]][npm-link]
 [![MIT license][license-badge]][license-link]
 [![we're hiring][hiring-badge]][hiring-link]
 
-
 ## Usage
 
-```
-npm install st-multi-sort
-```
+Simply use st-multi-sort instead of st-sort.
 
-```js
-var stMultiSort = require('st-multi-sort');
+```html
+<table class='table' st-table='displayPunchcards' st-safe-src='punchcards'>
+  <thead>
+    <tr>
+      <th st-multi-sort='name'>Name</th>
+      <th st-multi-sort='age'>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+     ...
+  </tbody>
+</table>
 ```
 
 ## Contributing
