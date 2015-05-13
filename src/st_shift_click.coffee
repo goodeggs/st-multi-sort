@@ -1,7 +1,6 @@
 ###
 Service to manage shift clicks on elements
 ###
-
 angular.module('smart-table')
 
 .factory 'stShiftSort', ->
@@ -14,9 +13,7 @@ angular.module('smart-table')
     clickElement: (elementId) ->
       if elementId not in clickedElements
         clickedElements.push elementId
-      clickedElements.length
 
     clear: ->
       clickedElements.length = 0
-      0
   }
