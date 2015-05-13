@@ -1,6 +1,6 @@
 {
   "name": "st-multi-sort",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Multi column sorting directive for smart table",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
