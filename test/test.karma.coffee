@@ -294,6 +294,72 @@ describe 'stMultiSort Directive', ->
       ]
       return
 
+    it 'should sort by multiple columns when alt clicking', ->
+      ths = element.find('th')
+      angular.element(ths[0]).triggerHandler 'click'
+      shiftClick = jQuery.Event('click')
+      shiftClick.altKey = true
+      angular.element(ths[2]).triggerHandler shiftClick
+      actual = trToModel(element.find('tr.test-row'))
+      expect(actual).to.deep.equal [
+        {
+          name: 'Faivre'
+          firstname: 'Blandine'
+          age: 44
+        }
+        {
+          name: 'Francoise'
+          firstname: 'Frere'
+          age: 99
+        }
+        {
+          name: 'Leponge'
+          firstname: 'Bob'
+          age: 22
+        }
+        {
+          name: 'Renard'
+          firstname: 'Olivier'
+          age: 33
+        }
+        {
+          name: 'Renard'
+          firstname: 'Laurent'
+          age: 66
+        }
+      ]
+      angular.element(ths[2]).triggerHandler shiftClick
+      actual = trToModel(element.find('tr.test-row'))
+      expect(actual).to.deep.equal [
+        {
+          name: 'Faivre'
+          firstname: 'Blandine'
+          age: 44
+        }
+        {
+          name: 'Francoise'
+          firstname: 'Frere'
+          age: 99
+        }
+        {
+          name: 'Leponge'
+          firstname: 'Bob'
+          age: 22
+        }
+        {
+          name: 'Renard'
+          firstname: 'Laurent'
+          age: 66
+        }
+        {
+          name: 'Renard'
+          firstname: 'Olivier'
+          age: 33
+        }
+      ]
+      return
+
+
 
 
     it 'should support getter function as predicate', ->
