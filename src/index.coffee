@@ -74,7 +74,7 @@ angular.module('smart-table').directive 'stMultiSort', [
 
       element.bind 'click', (e) ->
         return unless predicate
-        if e.shiftKey or e.altKey
+        if e.shiftKey or e.ctrlKey 
           stShiftSort.clickElement elementId
         else
           stShiftSort.clear()

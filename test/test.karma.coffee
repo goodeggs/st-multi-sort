@@ -294,11 +294,11 @@ describe 'stMultiSort Directive', ->
       ]
       return
 
-    it 'should sort by multiple columns when alt clicking', ->
+    it 'should sort by multiple columns when ctrl clicking', ->
       ths = element.find('th')
       angular.element(ths[0]).triggerHandler 'click'
       shiftClick = jQuery.Event('click')
-      shiftClick.altKey = true
+      shiftClick.ctrlKey = true
       angular.element(ths[2]).triggerHandler shiftClick
       actual = trToModel(element.find('tr.test-row'))
       expect(actual).to.deep.equal [
