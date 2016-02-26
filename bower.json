@@ -13,7 +13,7 @@
     "gulpfile.js"
   ],
   "dependencies": {
-    "smart-table": ">=2.1"
+    "angular-smart-table": ">=2.1"
   },
   "devDependencies": {
   }
