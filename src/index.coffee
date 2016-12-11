@@ -74,11 +74,11 @@ angular.module('smart-table').directive 'stMultiSort', [
 
       element.bind 'click', (e) ->
         return unless predicate
-        if e.shiftKey
+        if e.shiftKey or e.ctrlKey 
           stShiftSort.clickElement elementId
         else
           stShiftSort.clear()
-        scope.$apply -> sort(e.shiftKey)
+        scope.$apply -> sort(e.shiftKey or e.ctrlKey)
 
       scope.$on 'clearOtherSortClasses', (e, sortedElementId) ->
         if sortedElementId isnt elementId
