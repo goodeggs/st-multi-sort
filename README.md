@@ -3,7 +3,7 @@
 A multi-column sorting directive for [Smart Table](http://lorenzofox3.github.io/smart-table-website/). It works just like stSort, but also supports:
 
 - **stable sort** - clicking another column preserves the previous sort order when possible
-- **shift click sorting** - shift clicking a column adds that column as a secondary sort
+- **shift click sorting** - shift or ctrl clicking a column adds that column as a secondary sort
 
 [![build status][travis-badge]][travis-link]
 [![npm version][npm-badge]][npm-link]
@@ -26,6 +26,19 @@ Simply use st-multi-sort instead of st-sort.
      ...
   </tbody>
 </table>
+```
+
+Note, if you want to support shift clicking, I recommend you add this CSS to prevent the text from highlighting on click:
+```css
+[st-multi-sort] {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
 ```
 
 ## Contributing
