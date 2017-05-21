@@ -4,7 +4,6 @@ expect = require('chai').expect
 require 'angular-smart-table'
 stMultiSort = require '../src'
 
-
 describe 'stMultiSort Directive', ->
   rootScope = undefined
   scope = undefined

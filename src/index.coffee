@@ -1,6 +1,6 @@
 require './multi_order_by'
 require './st_element_id'
-require './st_shift_click'
+require './st_shift_sort'
 
 ng = angular
 
@@ -74,7 +74,7 @@ angular.module('smart-table').directive 'stMultiSort', [
 
       element.bind 'click', (e) ->
         return unless predicate
-        if e.shiftKey or e.ctrlKey 
+        if e.shiftKey or e.ctrlKey
           stShiftSort.clickElement elementId
         else
           stShiftSort.clear()
