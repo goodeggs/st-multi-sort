@@ -1,6 +1,5 @@
 require './multi_order_by'
 require './st_element_id'
-require './st_shift_sort'
 
 ng = angular
 
@@ -9,8 +8,7 @@ angular.module('smart-table').directive 'stMultiSort', [
   '$parse'
   '$rootScope'
   'stUniqueId'
-  'stShiftSort'
-  (stConfig, $parse, $rootScope, stUniqueId, stShiftSort) ->
+  (stConfig, $parse, $rootScope, stUniqueId) ->
     restrict: 'A'
     require: '^stTable'
     link: (scope, element, attr, ctrl) ->
@@ -51,16 +49,19 @@ angular.module('smart-table').directive 'stMultiSort', [
           if indexOfExistingSort isnt -1
             tableState.sort.predicate.splice indexOfExistingSort, 1
 
-        do -> # add sort class to element
+        do -> # update sort classes
           index = if index % 2 == 0 then 2 else 1
           element.removeClass(stateClasses[index % 2]).addClass stateClasses[index - 1]
           if !holdingShiftKey
             $rootScope.$broadcast 'clearOtherSortClasses', elementId
 
-        tableState.sort.predicate.splice stShiftSort.getIndex(elementId), 0,
-          elementId: elementId
-          predicate: predicate
-          reverse: reverse == true
+        do -> # update sort
+          if !holdingShiftKey
+            tableState.sort.predicate.length = 0;
+          tableState.sort.predicate.push
+            elementId: elementId
+            predicate: predicate
+            reverse: reverse == true
 
         tableState.pagination.start = 0
         ctrl.pipe()
@@ -74,10 +75,6 @@ angular.module('smart-table').directive 'stMultiSort', [
 
       element.bind 'click', (e) ->
         return unless predicate
-        if e.shiftKey or e.ctrlKey
-          stShiftSort.clickElement elementId
-        else
-          stShiftSort.clear()
         scope.$apply -> sort(e.shiftKey or e.ctrlKey)
 
       scope.$on 'clearOtherSortClasses', (e, sortedElementId) ->
