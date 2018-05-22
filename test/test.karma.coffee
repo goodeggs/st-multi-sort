@@ -2,7 +2,7 @@ require 'mocha-sinon'
 expect = require('chai').expect
 
 require 'angular-smart-table'
-stMultiSort = require '../src'
+stMultiSort = require '..'
 
 describe 'stMultiSort Directive', ->
   rootScope = undefined

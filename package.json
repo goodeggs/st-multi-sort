@@ -27,17 +27,15 @@
     "chai": "~1.x.x",
     "chai-jquery": "^2.0.0",
     "coffee-script": ">=1.8.x",
-    "goodeggs-angular-browserify": "^2.0.0",
-    "goodeggs-karma": "^2.3.0",
-    "gulp": "^3.9.1",
+    "goodeggs-karma": "^6.0.3",
     "mocha": "~1.x.x",
     "mocha-sinon": "~1.x.x"
   },
   "scripts": {
-    "compile": "gulp compile",
-    "prepublish": "npm run compile",
-    "pretest": "npm run compile",
-    "test": "gulp test"
+    "build": "coffee --compile --output lib/ src/",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build",
+    "test": "coffee ./run_karma.coffee"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
